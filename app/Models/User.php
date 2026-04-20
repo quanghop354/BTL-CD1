@@ -8,42 +8,84 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * Model Người Dùng - Quản lý thông tin và vai trò người dùng
+ * Hỗ trợ hai vai trò: Admin (quản trị viên) và User (độc giả thường)
+ * 
+ * @package App\Models
+ */
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
+     * Các thuộc tính có thể được gán hàng loạt (mass assignment)
+     * Bao gồm: tên, email, tên đăng nhập, mật khẩu, ID Google, vai trò
      *
      * @var list<string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'name',              // Tên người dùng
+        'email',             // Email đăng nhập
+        'username',          // Tên đăng nhập
+        'password',          // Mật khẩu (được mã hóa)
+        'google_id',         // ID từ đăng nhập Google
+        'role',              // Vai trò: 'admin' hoặc 'user'
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * Các thuộc tính không nên được trả về khi serialize (chuyển đổi thành JSON)
+     * Mật khẩu và token nhớ không được gửi lại phía client
      *
      * @var list<string>
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        'password',          // Mật khẩu luôn được ẩn
+        'remember_token',    // Token nhớ đăng nhập được ẩn
     ];
 
     /**
-     * Get the attributes that should be cast.
+     * Chuyển đổi kiểu dữ liệu cho các cột trong cơ sở dữ liệu
+     * email_verified_at sẽ được chuyển thành Carbon DateTime
+     * password sẽ tự động được mã hóa/giải mã khi lưu/lấy
      *
-     * @return array<string, string>
+     * @return array<string, string> Các cột và kiểu dữ liệu cần chuyển đổi
      */
     protected function casts(): array
     {
         return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            'email_verified_at' => 'datetime',  // Chuyển thành đối tượng DateTime
+            'password' => 'hashed',             // Tự động mã hóa khi set, so sánh khi check
         ];
+    }
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
+
+    /**
+     * Kiểm tra xem người dùng hiện tại có phải là Admin (Quản Trị Viên) không
+     * 
+     * Sử dụng: if ($user->isAdmin()) { ... }
+     *
+     * @return bool true nếu vai trò là 'admin', ngược lại false
+     */
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
+    }
+
+    /**
+     * Kiểm tra xem người dùng hiện tại có phải là User (Độc Giả Thường) không
+     * 
+     * Sử dụng: if ($user->isUser()) { ... }
+     *
+     * @return bool true nếu vai trò là 'user', ngược lại false
+     */
+    public function isUser(): bool
+    {
+        return $this->role === 'user';
     }
 }

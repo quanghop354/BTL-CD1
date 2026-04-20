@@ -62,6 +62,10 @@ class BookController extends Controller
      */
     public function create()
     {
+        if (!auth()->user()->isAdmin()) {
+            abort(403, 'Bạn không có quyền truy cập trang này.');
+        }
+
         $categories = Category::all();
         return view('books.create', compact('categories'));
     }
@@ -71,6 +75,10 @@ class BookController extends Controller
      */
     public function store(BookRequest $request)
     {
+        if (!auth()->user()->isAdmin()) {
+            abort(403, 'Bạn không có quyền truy cập trang này.');
+        }
+
         $data = $request->validated();
         $data['slug'] = Str::slug($data['name']);
 
@@ -91,9 +99,10 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Book $book)
     {
-        //
+        $book->load(['categories', 'borrows.reader']);
+        return view('books.show', compact('book'));
     }
 
     /**
@@ -101,6 +110,10 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
+        if (!auth()->user()->isAdmin()) {
+            abort(403, 'Bạn không có quyền truy cập trang này.');
+        }
+
         $categories = Category::all();
         return view('books.edit', compact('book', 'categories'));
     }
@@ -110,6 +123,10 @@ class BookController extends Controller
      */
     public function update(BookRequest $request, Book $book)
     {
+        if (!auth()->user()->isAdmin()) {
+            abort(403, 'Bạn không có quyền truy cập trang này.');
+        }
+
         $data = $request->validated();
         $data['slug'] = Str::slug($data['name']);
 
@@ -132,12 +149,20 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
+        if (!auth()->user()->isAdmin()) {
+            abort(403, 'Bạn không có quyền truy cập trang này.');
+        }
+
         $book->delete();
         return redirect()->route('books.index')->with('success', 'Sách đã được xóa thành công.');
     }
 
     public function restore($id)
     {
+        if (!auth()->user()->isAdmin()) {
+            abort(403, 'Bạn không có quyền truy cập trang này.');
+        }
+
         $book = Book::withTrashed()->findOrFail($id);
         $book->restore();
         return redirect()->route('books.index')->with('success', 'Sách đã được khôi phục thành công.');
@@ -145,6 +170,10 @@ class BookController extends Controller
 
     public function trashed(Request $request)
     {
+        if (!auth()->user()->isAdmin()) {
+            abort(403, 'Bạn không có quyền truy cập trang này.');
+        }
+
         $query = Book::onlyTrashed()->with('categories');
 
         // Search
@@ -163,6 +192,10 @@ class BookController extends Controller
 
     public function forceDelete($id)
     {
+        if (!auth()->user()->isAdmin()) {
+            abort(403, 'Bạn không có quyền truy cập trang này.');
+        }
+
         $book = Book::withTrashed()->findOrFail($id);
         $book->forceDelete();
         return redirect()->route('books.trashed')->with('success', 'Sách đã được xóa vĩnh viễn.');

@@ -7,21 +7,68 @@ use App\Models\Category;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
+/**
+ * Seeder Cơ Sở Dữ Liệu - Tạo dữ liệu mẫu
+ * 
+ * Tạo:
+ * - 1 tài khoản Admin với email admin@example.com
+ * - 1 tài khoản User thường
+ * - Các thể loại sách
+ * - Các cuốn sách mẫu
+ * 
+ * Cách chạy: php artisan db:seed
+ */
 class DatabaseSeeder extends Seeder
 {
     use WithoutModelEvents;
 
     /**
-     * Seed the application's database.
+     * Chạy seeder để tạo dữ liệu mẫu vào database
      */
     public function run(): void
     {
-        User::factory()->create([
-            'name' => 'Người Dùng Mẫu',
-            'email' => 'test@example.com',
+        /**
+         * ========================================
+         * TẠO TÀI KHOẢN ADMIN
+         * ========================================
+         * 
+         * Email:    admin@example.com
+         * Mật khẩu: admin123 (được mã hóa bằng Hash::make())
+         * Vai trò:  admin
+         * 
+         * QUAN TRỌNG: Mật khẩu PHẢI được mã hóa bằng Hash::make()
+         * để tránh lưu mật khẩu dưới dạng plain text (nguy hiểm)
+         */
+        User::create([
+            'name' => 'Admin Quản Trị',                      // Tên quản trị viên
+            'email' => 'admin@example.com',                  // Email đăng nhập
+            'username' => 'admin',                           // Tên đăng nhập
+            'password' => Hash::make('admin123'),            // Mật khẩu được mã hóa (QUAN TRỌNG!)
+            'role' => 'admin',                               // Vai trò admin
         ]);
 
+        /**
+         * ========================================
+         * TẠO TÀI KHOẢN USER THƯỜNG
+         * ========================================
+         * 
+         * Tạo tài khoản người dùng thường dùng Factory
+         * Email:    test@example.com
+         * Vai trò:  user (mặc định)
+         */
+        User::factory()->create([
+            'name' => 'Người Dùng Mẫu',                      // Tên người dùng
+            'email' => 'test@example.com',                   // Email đăng nhập
+            'username' => 'testuser',                        // Tên đăng nhập
+        ]);
+
+        /**
+         * ========================================
+         * TẠO DANH SÁCH THỂ LOẠI
+         * ========================================
+         */
         $this->call(CategorySeeder::class);
 
         $book1 = Book::create([

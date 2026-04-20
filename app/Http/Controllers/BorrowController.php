@@ -24,6 +24,10 @@ class BorrowController extends Controller
             $query->where('reader_id', $request->reader_id);
         }
 
+        if ($request->has('status') && $request->status) {
+            $query->where('status', $request->status);
+        }
+
         $borrows = $query->paginate(10);
         $books = Book::all();
         $readers = Reader::all();
@@ -36,6 +40,10 @@ class BorrowController extends Controller
      */
     public function create()
     {
+        if (!auth()->user()->isAdmin()) {
+            return redirect()->route('books.index')->with('error', 'Vui lòng mượn sách từ mục sách và thực hiện thanh toán trước.');
+        }
+
         $books = Book::available()->get();
         return view('borrows.create', compact('books'));
     }
@@ -45,6 +53,10 @@ class BorrowController extends Controller
      */
     public function store(Request $request)
     {
+        if (!auth()->user()->isAdmin()) {
+            return redirect()->route('books.index')->with('error', 'Người dùng cần tạo yêu cầu mượn từ trang sách và chờ admin xác nhận thanh toán.');
+        }
+
         $request->validate([
             'book_id' => 'required|exists:books,id',
             'name' => 'required|string|max:255',
@@ -52,6 +64,12 @@ class BorrowController extends Controller
             'borrow_date' => 'required|date',
             'return_date' => 'nullable|date|after:borrow_date',
         ]);
+
+        $book = Book::findOrFail($request->book_id);
+
+        if ($book->status !== 'available') {
+            return redirect()->route('borrows.create')->with('error', 'Sách này hiện không có sẵn để mượn.');
+        }
 
         $reader = Reader::firstOrCreate(
             ['email' => $request->email],
@@ -64,6 +82,10 @@ class BorrowController extends Controller
             'borrow_date' => $request->borrow_date,
             'return_date' => $request->return_date,
             'status' => 'borrowed',
+        ]);
+
+        $book->update([
+            'status' => 'unavailable',
         ]);
 
         return redirect()->route('borrows.index')->with('success', 'Mượn sách thành công.');
@@ -98,15 +120,32 @@ class BorrowController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        if (!auth()->user()->isAdmin()) {
+            abort(403, 'Bạn không có quyền truy cập trang này.');
+        }
+
+        $borrow = Borrow::findOrFail($id);
+        $borrow->delete();
+
+        return redirect()->route('borrows.index')->with('success', 'Ghi nhận mượn sách đã được xóa thành công.');
     }
 
     public function returnBook(Borrow $borrow)
     {
+        if (!auth()->user()->isAdmin()) {
+            abort(403, 'Bạn không có quyền truy cập trang này.');
+        }
+
         $borrow->update([
             'status' => 'returned',
             'return_date' => now()->toDateString(),
         ]);
+
+        if ($borrow->book) {
+            $borrow->book->update([
+                'status' => 'available',
+            ]);
+        }
 
         return redirect()->route('borrows.index')->with('success', 'Trả sách thành công.');
     }

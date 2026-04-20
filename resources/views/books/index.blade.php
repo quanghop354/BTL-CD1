@@ -2,17 +2,26 @@
 
 @section('title', 'Sách - Quản Lý Thư Viện')
 
+@section('breadcrumb')
+<x-breadcrumb :items="[
+    ['title' => 'Sách', 'url' => route('books.index')]
+]" />
+@endsection
+
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h1 class="h3"><i class="fas fa-book me-2"></i>Sách</h1>
-    <div>
-        <a href="{{ route('books.trashed') }}" class="btn btn-outline-warning me-2">
-            <i class="fas fa-trash me-1"></i>Thùng Rác
-        </a>
-        <a href="{{ route('books.create') }}" class="btn btn-primary">
-            <i class="fas fa-plus me-1"></i>Thêm Sách
-        </a>
-    </div>
+
+    @if(auth()->user()->isAdmin())
+        <div>
+            <a href="{{ route('books.trashed') }}" class="btn btn-outline-warning me-2">
+                <i class="fas fa-trash me-1"></i>Thùng Rác
+            </a>
+            <a href="{{ route('books.create') }}" class="btn btn-primary">
+                <i class="fas fa-plus me-1"></i>Thêm Sách
+            </a>
+        </div>
+    @endif
 </div>
 
 <div class="card mb-4">
@@ -85,44 +94,72 @@
             <div class="card h-100">
                 <div class="card-body d-flex flex-column">
                     @if($book->image)
-                        <img src="{{ asset('storage/' . $book->image) }}" class="card-img-top mb-3" alt="Book Image" style="height: 200px; object-fit: cover;">
+                        <a href="{{ route('books.show', $book) }}" class="text-decoration-none">
+                            <img src="{{ asset('storage/' . $book->image) }}" class="card-img-top mb-3" alt="Book Image" style="height: 200px; object-fit: cover;">
+                        </a>
                     @else
-                        <div class="bg-light d-flex align-items-center justify-content-center mb-3" style="height: 200px;">
-                            <i class="fas fa-book fa-3x text-muted"></i>
-                        </div>
+                        <a href="{{ route('books.show', $book) }}" class="text-decoration-none">
+                            <div class="bg-light d-flex align-items-center justify-content-center mb-3" style="height: 200px;">
+                                <i class="fas fa-book fa-3x text-muted"></i>
+                            </div>
+                        </a>
                     @endif
-                    <h5 class="card-title">{{ $book->name }}</h5>
+
+                    <h5 class="card-title">
+                        <a href="{{ route('books.show', $book) }}" class="text-decoration-none text-dark">
+                            {{ $book->name }}
+                        </a>
+                    </h5>
+
                     <p class="card-text text-muted">bởi {{ $book->author }}</p>
                     <p class="card-text"><strong>{{ number_format($book->price, 0, ',', '.') }} VNĐ</strong></p>
+
                     <p class="card-text">
                         <span class="badge bg-{{ $book->status == 'available' ? 'success' : 'danger' }}">
-                            <i class="fas fa-{{ $book->status == 'available' ? 'check' : 'times' }} me-1"></i>{{ $book->status == 'available' ? 'Có Sẵn' : 'Không Có Sẵn' }}
+                            <i class="fas fa-{{ $book->status == 'available' ? 'check' : 'times' }} me-1"></i>
+                            {{ $book->status == 'available' ? 'Có Sẵn' : 'Không Có Sẵn' }}
                         </span>
                     </p>
+
                     <p class="card-text small text-muted">
                         <i class="fas fa-tags me-1"></i>{{ $book->categories->pluck('name')->join(', ') ?: 'Không Có Thể Loại' }}
                     </p>
+
                     <p class="card-text small">
                         <i class="fas fa-handshake me-1"></i>{{ $book->borrows_count }} lượt mượn
                     </p>
-                    <div class="mt-auto">
-                        <a href="{{ route('books.edit', $book) }}" class="btn btn-outline-warning btn-sm me-1">
-                            <i class="fas fa-edit me-1"></i>Sửa
+
+                    <div class="mt-auto d-flex flex-wrap gap-2">
+                        <a href="{{ route('books.show', $book) }}" class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-eye me-1"></i>Xem Chi Tiết
                         </a>
-                        <form method="POST" action="{{ route('books.destroy', $book) }}" style="display:inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-outline-danger btn-sm me-1" onclick="return confirm('Bạn có chắc chắn?')">
-                                <i class="fas fa-trash me-1"></i>Xóa
-                            </button>
-                        </form>
-                        @if($book->trashed())
-                            <form method="POST" action="{{ route('books.restore', $book) }}" style="display:inline;">
+
+                        @if(auth()->user()->isAdmin())
+                            <a href="{{ route('books.edit', $book) }}" class="btn btn-outline-warning btn-sm">
+                                <i class="fas fa-edit me-1"></i>Sửa
+                            </a>
+
+                            <form method="POST" action="{{ route('books.destroy', $book) }}" class="d-inline">
                                 @csrf
-                                <button type="submit" class="btn btn-outline-success btn-sm">
-                                    <i class="fas fa-undo me-1"></i>Khôi Phục
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Bạn có chắc chắn?')">
+                                    <i class="fas fa-trash me-1"></i>Xóa
                                 </button>
                             </form>
+                        @else
+                            <a href="{{ route('payments.create', ['book' => $book, 'type' => 'purchase']) }}" class="btn btn-primary btn-sm">
+                                <i class="fas fa-cart-shopping me-1"></i>Mua
+                            </a>
+
+                            @if($book->status === 'available')
+                                <a href="{{ route('payments.create', ['book' => $book, 'type' => 'borrow']) }}" class="btn btn-outline-info btn-sm">
+                                    <i class="fas fa-handshake me-1"></i>Mượn
+                                </a>
+                            @else
+                                <button type="button" class="btn btn-outline-secondary btn-sm" disabled>
+                                    <i class="fas fa-ban me-1"></i>Hết Mượn
+                                </button>
+                            @endif
                         @endif
                     </div>
                 </div>

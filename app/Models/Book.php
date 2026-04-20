@@ -21,6 +21,11 @@ class Book extends Model
         return $this->hasMany(Borrow::class);
     }
 
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
+
     public function readers()
     {
         return $this->belongsToMany(Reader::class, 'borrows');

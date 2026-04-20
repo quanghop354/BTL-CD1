@@ -2,6 +2,12 @@
 
 @section('title', 'Độc Giả - Quản Lý Thư Viện')
 
+@section('breadcrumb')
+<x-breadcrumb :items="[
+    ['title' => 'Độc giả', 'url' => route('readers.index')]
+]" />
+@endsection
+
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h1 class="h3"><i class="fas fa-users me-2"></i>Độc Giả</h1>
@@ -12,25 +18,19 @@
 
 <div class="card mb-4">
     <div class="card-header">
-        <h5 class="mb-0"><i class="fas fa-search me-2"></i>Tìm Kiếm</h5>
+        <h5 class="mb-0"><i class="fas fa-search me-2"></i>Tìm Kiếm & Sắp Xếp</h5>
     </div>
     <div class="card-body">
         <form method="GET">
             <div class="row g-3">
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <input type="text" name="search" class="form-control" placeholder="Tìm theo tên hoặc email" value="{{ request('search') }}">
                 </div>
                 <div class="col-md-3">
                     <select name="sort_by" class="form-select">
-                        <option value="created_at" {{ request('sort_by') == 'created_at' ? 'selected' : '' }}>Ngày Thêm</option>
-                        <option value="name" {{ request('sort_by') == 'name' ? 'selected' : '' }}>Tên</option>
-                        <option value="borrows_count" {{ request('sort_by') == 'borrows_count' ? 'selected' : '' }}>Số Lượt Mượn</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <select name="sort_order" class="form-select">
-                        <option value="desc" {{ request('sort_order') == 'desc' ? 'selected' : '' }}>Giảm Dần</option>
-                        <option value="asc" {{ request('sort_order') == 'asc' ? 'selected' : '' }}>Tăng Dần</option>
+                        <option value="created_at" {{ request('sort_by') == 'created_at' ? 'selected' : '' }}>Ngày Thêm (Mới nhất)</option>
+                        <option value="name" {{ request('sort_by') == 'name' ? 'selected' : '' }}>Tên (A-Z)</option>
+                        <option value="borrows_count" {{ request('sort_by') == 'borrows_count' ? 'selected' : '' }}>Số Lượt Mượn (Cao nhất)</option>
                     </select>
                 </div>
                 <div class="col-md-1">

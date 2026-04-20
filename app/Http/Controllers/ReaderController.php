@@ -12,6 +12,10 @@ class ReaderController extends Controller
      */
     public function index(Request $request)
     {
+        if (!auth()->user()->isAdmin()) {
+            abort(403, 'Bạn không có quyền truy cập trang này.');
+        }
+
         $query = Reader::withCount('borrows');
 
         // Search
@@ -25,8 +29,7 @@ class ReaderController extends Controller
 
         // Sort
         $sortBy = $request->get('sort_by', 'created_at');
-        $sortOrder = $request->get('sort_order', 'desc');
-        $query->orderBy($sortBy, $sortOrder);
+        $query->orderBy($sortBy, 'desc');
 
         $readers = $query->paginate(10);
 
@@ -38,6 +41,10 @@ class ReaderController extends Controller
      */
     public function create()
     {
+        if (!auth()->user()->isAdmin()) {
+            abort(403, 'Bạn không có quyền truy cập trang này.');
+        }
+
         return view('readers.create');
     }
 
@@ -46,6 +53,10 @@ class ReaderController extends Controller
      */
     public function store(Request $request)
     {
+        if (!auth()->user()->isAdmin()) {
+            abort(403, 'Bạn không có quyền truy cập trang này.');
+        }
+
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:readers,email',
@@ -61,6 +72,10 @@ class ReaderController extends Controller
      */
     public function show(Reader $reader)
     {
+        if (!auth()->user()->isAdmin()) {
+            abort(403, 'Bạn không có quyền truy cập trang này.');
+        }
+
         $reader->load(['borrows.book']);
         return view('readers.show', compact('reader'));
     }
@@ -70,6 +85,10 @@ class ReaderController extends Controller
      */
     public function edit(Reader $reader)
     {
+        if (!auth()->user()->isAdmin()) {
+            abort(403, 'Bạn không có quyền truy cập trang này.');
+        }
+
         return view('readers.edit', compact('reader'));
     }
 
@@ -78,6 +97,10 @@ class ReaderController extends Controller
      */
     public function update(Request $request, Reader $reader)
     {
+        if (!auth()->user()->isAdmin()) {
+            abort(403, 'Bạn không có quyền truy cập trang này.');
+        }
+
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:readers,email,' . $reader->id,
@@ -93,6 +116,10 @@ class ReaderController extends Controller
      */
     public function destroy(Reader $reader)
     {
+        if (!auth()->user()->isAdmin()) {
+            abort(403, 'Bạn không có quyền truy cập trang này.');
+        }
+
         $reader->delete();
         return redirect()->route('readers.index')->with('success', 'Độc giả đã được xóa thành công.');
     }
