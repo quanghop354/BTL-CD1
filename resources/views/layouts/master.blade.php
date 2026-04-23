@@ -203,7 +203,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="{{ route('dashboard') }}">
-                <i class="fas fa-book"></i> Quản Lý Thư Viện
+                <i class="fas fa-book"></i> LibTech
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -213,9 +213,9 @@
                 <ul class="navbar-nav ms-auto">
                     {{-- Kiểm tra nếu người dùng đã đăng nhập --}}
                     @auth
-                        {{-- Menu: Bảng Điều Khiển (Dashboard) - Tất cả người dùng --}}
+                        {{-- Menu: Trang Chủ - Tất cả người dùng --}}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt"></i> Bảng Điều Khiển</a>
+                            <a class="nav-link" href="{{ route('dashboard') }}"><i class="fas fa-home"></i> Trang chủ</a>
                         </li>
                         
                         {{-- Menu: Sách - Tất cả người dùng --}}
@@ -239,6 +239,11 @@
                         {{-- Menu: Mượn Trả - Tất cả người dùng --}}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('borrows.index') }}"><i class="fas fa-handshake"></i> Mượn Trả</a>
+                        </li>
+                        
+                        {{-- Menu: Thanh Toán - Tất cả người dùng có thể xem lịch sử và quản lý --}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('payments.index') }}"><i class="fas fa-file-invoice-dollar"></i> Thanh Toán</a>
                         </li>
                         
                         {{-- Dropdown Menu: Người Dùng - Tất cả người dùng --}}
@@ -302,8 +307,33 @@
     </div>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Hệ Thống Quản Lý Thư Viện. Tất cả quyền được bảo lưu.</p>
+        <div class="container text-start">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="text-white mb-3"><i class="fas fa-book-reader me-2"></i>LibTech</h5>
+                    <p class="text-light opacity-75">Nơi lưu giữ tri thức và khơi nguồn đam mê đọc sách. Cung cấp hàng ngàn đầu sách đa dạng thể loại cho mọi lứa tuổi.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="text-white mb-3">Liên Hệ</h5>
+                    <ul class="list-unstyled text-light opacity-75">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 123 Đường ABC,Quận Hà Đông, TP.Hà Nội</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> Hotline: 0356798504</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> Email: quanghop300504@gamil.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="text-white mb-3">Giờ Hoạt Động</h5>
+                    <ul class="list-unstyled text-light opacity-75">
+                        <li class="mb-2">Thứ 2 - Thứ 6: 08:00 - 20:00</li>
+                        <li class="mb-2">Thứ 7 - CN: 08:00 - 17:00</li>
+                        <li class="mb-2">Ngày lễ: Nghỉ</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-light opacity-25 my-4">
+            <div class="text-center text-light opacity-75">
+                <p class="mb-0">&copy; 2026 Hệ Thống Quản Lý Thư Viện. Tất cả quyền được bảo lưu.</p>
+            </div>
         </div>
     </footer>
 

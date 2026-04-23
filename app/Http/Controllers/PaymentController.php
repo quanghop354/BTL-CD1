@@ -56,7 +56,7 @@ class PaymentController extends Controller
 
         $amount = $type === 'purchase'
             ? $book->price
-            : round($book->price * 0.3, 2);
+            : round($book->price * 0.15, 2);
 
         return view('payments.create', compact('book', 'type', 'amount'));
     }
@@ -85,7 +85,7 @@ class PaymentController extends Controller
 
         $amount = $type === 'purchase'
             ? $book->price
-            : round($book->price * 0.3, 2);
+            : round($book->price * 0.15, 2);
 
         Payment::create([
             'user_id' => auth()->id(),

@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 /**
  * ========================================
  * HỆ THỐNG ĐỊNH TUYẾN (ROUTES)
- * Quản Lý Thư Viện - Role-Based Access Control
+ * LibTech - Role-Based Access Control
  * ========================================
  * 
  * Các middleware được sử dụng:
@@ -117,7 +117,7 @@ Route::middleware('auth')->group(function () {
     Route::get('books', [BookController::class, 'index'])->name('books.index');
     
     // Chi tiết một cuốn sách
-    Route::get('books/{book}', [BookController::class, 'show'])->name('books.show');
+    Route::get('books/{book}', [BookController::class, 'show'])->name('books.show')->whereNumber('book');
 
     /**
      * ========================================

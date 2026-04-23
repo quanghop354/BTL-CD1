@@ -118,7 +118,15 @@ class AuthController extends Controller
 
     public function editProfile()
     {
-        return view('auth.profile');
+        $query = \App\Models\Payment::with('book')->latest();
+        
+        if (!Auth::user()->isAdmin()) {
+            $query->where('user_id', Auth::id());
+        }
+
+        $payments = $query->take(5)->get();
+            
+        return view('auth.profile', compact('payments'));
     }
 
     public function updateProfile(Request $request)

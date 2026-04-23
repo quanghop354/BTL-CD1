@@ -1,20 +1,43 @@
 @extends('layouts.master')
 
 {{-- Đặt tiêu đề trang --}}
-@section('title', 'Bảng Điều Khiển - Quản Lý Thư Viện')
+@section('title', 'Trang chủ - Quản Lý Thư Viện')
 
 {{-- Breadcrumb: Đường dẫn điều hướng --}}
 @section('breadcrumb')
 <x-breadcrumb :items="[
-    ['title' => 'Bảng điều khiển']
+    ['title' => 'Trang chủ']
 ]" />
 @endsection
 
 {{-- Nội dung chính của trang --}}
 @section('content')
-<div class="d-flex justify-content-between align-items-center mb-4">
-    <h1 class="h3"><i class="fas fa-tachometer-alt me-2"></i>Bảng Điều Khiển</h1>
-    <small class="text-muted">Chào mừng đến Hệ Thống Quản Lý Thư Viện</small>
+
+{{-- Bắt đầu Banner Giới Thiệu --}}
+<div class="card bg-dark text-white mb-4 border-0 shadow-lg overflow-hidden position-relative" style="border-radius: 15px; min-height: 350px;">
+    {{-- Ảnh Background lấy từ Unsplash --}}
+    <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" class="card-img position-absolute w-100 h-100" alt="Library Background" style="object-fit: cover; opacity: 0.5; top: 0; left: 0; z-index: 0;">
+    
+    {{-- Lớp phủ gradient để làm nổi bật chữ --}}
+    <div class="position-absolute w-100 h-100" style="background: linear-gradient(to right, rgba(118, 75, 162, 0.8), rgba(102, 126, 234, 0.4)); z-index: 1;"></div>
+    
+    <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center text-center p-4 position-relative" style="z-index: 2;">
+        <h1 class="display-4 fw-bold text-white mb-3" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Thư Viện Cộng Đồng</h1>
+        <p class="lead text-light mb-4" style="max-width: 800px; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">Nơi khơi nguồn tri thức, nuôi dưỡng tâm hồn và kết nối những người yêu sách. Khám phá hàng ngàn đầu sách hấp dẫn thuộc mọi thể loại ngay hôm nay!</p>
+        <div>
+            <a href="{{ route('books.index') }}" class="btn btn-primary btn-lg rounded-pill px-4 py-2 me-2 mb-2 fw-semibold shadow" style="background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%); border: none;">
+                <i class="fas fa-search me-2"></i>Tìm Kiếm Sách
+            </a>
+            <a href="{{ route('borrows.index') }}" class="btn btn-outline-light btn-lg rounded-pill px-4 py-2 mb-2 fw-semibold shadow">
+                <i class="fas fa-handshake me-2"></i>Lịch Sử Mượn Trả
+            </a>
+        </div>
+    </div>
+</div>
+{{-- Kết thúc Banner --}}
+
+<div class="d-flex justify-content-between align-items-center mb-4 mt-5">
+    <h3 class="h4 mb-0"><i class="fas fa-chart-line me-2 text-primary"></i>Tổng Quan Tình Hình</h3>
 </div>
 
 {{-- ====================================
