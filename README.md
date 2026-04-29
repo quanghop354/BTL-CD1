@@ -131,7 +131,7 @@ Dự án đã hoàn thiện trọn vẹn các yêu cầu cốt lõi của một 
 ## 9. Thành Viên Nhóm
 - [ ] Hoàng Quang Hợp(20220589)(Trưởng Nhóm): 
 -Đảm nhận vai trò "kiến trúc sư" và xử lý logic khó (Thiết kế CSDL, luồng thanh toán, mượn trả, thuật toán thống kê Dashboard, tổng hợp và review code), chỉnh sửa tài liệu README. 
-- [ ]Bùi Khánh Hùng:(20220656) 
+- [ ] Bùi Khánh Hùng:(20220656) 
 - Chuyên trách Frontend. Lo toàn bộ giao diện UI/UX (Blade, Bootstrap), làm chức năng Đánh giá (Modal), và đảm bảo web hiển thị đẹp trên điện thoại.
 - [ ] Đào Vũ Hoàng:(20220524) 
 -Chuyên trách Backend mảng Danh mục. Lập trình CRUD và xử lý dữ liệu cho Tác giả, Thể loại, Nhà XB, Kệ sách và làm Validation.
