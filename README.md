@@ -72,7 +72,6 @@ library-management/
 |-- config/                 (Các tệp cấu hình hệ thống)
 |-- database/
 |   |-- migrations/         (Các tệp khởi tạo CSDL)
-|   `-- database.sqlite     (Tệp CSDL SQLite cục bộ)
 |-- public/
 |   `-- storage/            (Nơi lưu trữ ảnh bìa sách và media tải lên)
 |-- resources/
@@ -104,7 +103,7 @@ Tạo tệp `.env` dựa trên bản mẫu `.env.example`:
 cp .env.example .env
 php artisan key:generate
 ```
-*(Lưu ý: Mặc định hệ thống sử dụng SQLite. Nếu bạn muốn sử dụng MySQL, hãy thay đổi thông tin `DB_CONNECTION` bên trong tệp `.env` cho phù hợp).*
+*(Hệ thống sử dụng cơ sở dữ liệu MySQL. Hãy chắc chắn bạn đã cài đặt MySQL (ví dụ qua XAMPP). Bạn cần tạo một database tên là `library_management` và đảm bảo các thông tin `DB_CONNECTION=mysql`, `DB_DATABASE=library_management`, `DB_USERNAME`, `DB_PASSWORD` trong tệp `.env` đã được cấu hình chính xác).*
 
 ### Bước 3: Khởi tạo Cơ sở dữ liệu và Storage
 Chạy lệnh tạo bảng và link thư mục lưu trữ ảnh:
@@ -130,10 +129,10 @@ Dự án đã hoàn thiện trọn vẹn các yêu cầu cốt lõi của một 
 
 ## 9. Thành Viên Nhóm
 - [ ] Hoàng Quang Hợp(20220589)(Trưởng Nhóm): 
-- Đảm nhận vai trò "kiến trúc sư" và xử lý logic khó (Thiết kế CSDL, luồng thanh toán, mượn trả, thuật toán thống kê Dashboard, tổng hợp và review code), chỉnh sửa tài liệu README. 
-- [ ] Bùi Khánh Hùng:(20220656) 
+-Đảm nhận vai trò "kiến trúc sư" và xử lý logic khó (Thiết kế CSDL, luồng thanh toán, mượn trả, thuật toán thống kê Dashboard, tổng hợp và review code), chỉnh sửa tài liệu README. 
+- [ ]Bùi Khánh Hùng:(20220656) 
 - Chuyên trách Frontend. Lo toàn bộ giao diện UI/UX (Blade, Bootstrap), làm chức năng Đánh giá (Modal), và đảm bảo web hiển thị đẹp trên điện thoại.
 - [ ] Đào Vũ Hoàng:(20220524) 
-- Chuyên trách Backend mảng Danh mục. Lập trình CRUD và xử lý dữ liệu cho Tác giả, Thể loại, Nhà XB, Kệ sách và làm Validation.
+-Chuyên trách Backend mảng Danh mục. Lập trình CRUD và xử lý dữ liệu cho Tác giả, Thể loại, Nhà XB, Kệ sách và làm Validation.
 - [ ] Vũ Hoàng Anh Tú(20220473): 
-- Chuyên trách Bảo mật, Phân quyền & Document. Xử lý Đăng nhập, Google OAuth, viết Middleware phân quyền Admin/User.
+- Chuyên trách Bảo mật, Phân quyền & Document. Xử lý Đăng nhập, viết Middleware phân quyền Admin/User.
