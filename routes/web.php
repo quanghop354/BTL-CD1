@@ -1,28 +1,10 @@
 <?php
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
 use App\Http\Controllers\AuthController;
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\BorrowController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ReaderController;
 use Illuminate\Support\Facades\Auth;
@@ -311,32 +293,3 @@ Route::middleware('auth')->group(function () {
  * 
  * Nếu không đạt một middleware nào → 403 Forbidden
  */
-=======
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
-use App\Http\Controllers\ReaderController;
-
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-
-Route::resource('books', BookController::class);
-Route::post('books/{id}/restore', [BookController::class, 'restore'])->name('books.restore');
-Route::get('books-trashed', [BookController::class, 'trashed'])->name('books.trashed');
-Route::delete('books/{id}/force-delete', [BookController::class, 'forceDelete'])->name('books.force-delete');
-
-Route::resource('categories', CategoryController::class);
-
-Route::resource('borrows', BorrowController::class);
-
-Route::resource('readers', ReaderController::class);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)

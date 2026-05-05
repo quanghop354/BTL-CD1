@@ -31,19 +31,6 @@ class BookRequest extends FormRequest
             'status' => 'required|in:available,unavailable',
             'category_ids' => 'required|array|min:1|max:2',
             'category_ids.*' => 'exists:categories,id',
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-            'publisher_id' => 'nullable|exists:publishers,id',
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
         ];
     }
 }

@@ -1,11 +1,5 @@
 @extends('layouts.master')
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
 @section('title', 'Thể Loại - Quản Lý Thư Viện')
 
 @section('breadcrumb')
@@ -70,11 +64,6 @@
         </div>
     </div>
 </div>
-=======
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
 @section('content')
 <h1>Categories</h1>
 
@@ -107,14 +96,4 @@
         @endforeach
     </tbody>
 </table>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
 @endsection

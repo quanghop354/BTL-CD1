@@ -75,33 +75,6 @@
                     </div>
 
                     <div class="mb-3">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-                        <label for="publisher_id" class="form-label">
-                            <i class="fas fa-building me-1"></i>Nhà Xuất Bản
-                        </label>
-                        <select class="form-select @error('publisher_id') is-invalid @enderror" id="publisher_id" name="publisher_id">
-                            <option value="">-- Chọn Nhà Xuất Bản (Tùy chọn) --</option>
-                            @foreach($publishers as $publisher)
-                                <option value="{{ $publisher->id }}" {{ old('publisher_id', $book->publisher_id) == $publisher->id ? 'selected' : '' }}>{{ $publisher->name }}</option>
-                            @endforeach
-                        </select>
-                        @error('publisher_id')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <div class="mb-3">
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
                         <label for="description" class="form-label">
                             <i class="fas fa-align-left me-1"></i>Mô Tả
                         </label>

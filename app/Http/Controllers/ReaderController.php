@@ -12,22 +12,6 @@ class ReaderController extends Controller
      */
     public function index(Request $request)
     {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (!auth()->user()->isAdmin() && !auth()->user()->isStaff()) {
-            abort(403, 'Bạn không có quyền truy cập trang này.');
-        }
-
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
         $query = Reader::withCount('borrows');
 
         // Search
@@ -41,27 +25,8 @@ class ReaderController extends Controller
 
         // Sort
         $sortBy = $request->get('sort_by', 'created_at');
-<<<<<<< HEAD
         $sortOrder = $request->get('sort_order', 'desc');
         $query->orderBy($sortBy, $sortOrder);
-=======
-<<<<<<< HEAD
-        $sortOrder = $request->get('sort_order', 'desc');
-        $query->orderBy($sortBy, $sortOrder);
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $query->orderBy($sortBy, 'desc');
-=======
-        $sortOrder = $request->get('sort_order', 'desc');
-        $query->orderBy($sortBy, $sortOrder);
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
-        $sortOrder = $request->get('sort_order', 'desc');
-        $query->orderBy($sortBy, $sortOrder);
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
 
         $readers = $query->paginate(10);
 
@@ -73,22 +38,6 @@ class ReaderController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (!auth()->user()->isAdmin() && !auth()->user()->isStaff()) {
-            abort(403, 'Bạn không có quyền truy cập trang này.');
-        }
-
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
         return view('readers.create');
     }
 
@@ -97,22 +46,6 @@ class ReaderController extends Controller
      */
     public function store(Request $request)
     {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (!auth()->user()->isAdmin() && !auth()->user()->isStaff()) {
-            abort(403, 'Bạn không có quyền truy cập trang này.');
-        }
-
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:readers,email',
@@ -128,22 +61,6 @@ class ReaderController extends Controller
      */
     public function show(Reader $reader)
     {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (!auth()->user()->isAdmin() && !auth()->user()->isStaff()) {
-            abort(403, 'Bạn không có quyền truy cập trang này.');
-        }
-
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
         $reader->load(['borrows.book']);
         return view('readers.show', compact('reader'));
     }
@@ -153,22 +70,6 @@ class ReaderController extends Controller
      */
     public function edit(Reader $reader)
     {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (!auth()->user()->isAdmin() && !auth()->user()->isStaff()) {
-            abort(403, 'Bạn không có quyền truy cập trang này.');
-        }
-
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
         return view('readers.edit', compact('reader'));
     }
 
@@ -177,22 +78,6 @@ class ReaderController extends Controller
      */
     public function update(Request $request, Reader $reader)
     {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (!auth()->user()->isAdmin() && !auth()->user()->isStaff()) {
-            abort(403, 'Bạn không có quyền truy cập trang này.');
-        }
-
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:readers,email,' . $reader->id,
@@ -208,36 +93,7 @@ class ReaderController extends Controller
      */
     public function destroy(Reader $reader)
     {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (!auth()->user()->isAdmin() && !auth()->user()->isStaff()) {
-            abort(403, 'Bạn không có quyền truy cập trang này.');
-        }
-
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
         $reader->delete();
         return redirect()->route('readers.index')->with('success', 'Độc giả đã được xóa thành công.');
     }
 }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)

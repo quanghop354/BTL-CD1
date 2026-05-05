@@ -1,11 +1,5 @@
 @extends('layouts.master')
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
 {{-- Đặt tiêu đề trang --}}
 @section('title', 'Trang chủ - Quản Lý Thư Viện')
 
@@ -51,11 +45,6 @@
     ==================================== --}}
 <div class="row mb-4">
     {{-- STAT 1: Tổng Số Sách (Hiển thị cho tất cả người dùng) --}}
-=======
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
 @section('title', 'Bảng Điều Khiển - Quản Lý Thư Viện')
 
 @section('content')
@@ -65,35 +54,12 @@
 </div>
 
 <div class="row mb-4">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
     <div class="col-lg-3 col-md-6 mb-3">
         <div class="card text-white bg-primary">
             <div class="card-body">
                 <div class="d-flex justify-content-between">
                     <div>
                         <h5 class="card-title"><i class="fas fa-book me-2"></i>Tổng Số Sách</h5>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-                        {{-- Hiển thị tổng số sách từ biến $totalBooks --}}
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
                         <h2 class="mb-0">{{ $totalBooks }}</h2>
                     </div>
                     <div class="align-self-center">
@@ -103,12 +69,6 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
     
     {{-- 
         STATS: Độc Giả, Mượn, Thể Loại - Chỉ Admin
@@ -128,11 +88,6 @@
                         <div class="align-self-center">
                             <i class="fas fa-users fa-2x opacity-75"></i>
                         </div>
-=======
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
     <div class="col-lg-3 col-md-6 mb-3">
         <div class="card text-white bg-success">
             <div class="card-body">
@@ -143,26 +98,10 @@
                     </div>
                     <div class="align-self-center">
                         <i class="fas fa-users fa-2x opacity-75"></i>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
                     </div>
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
         
         {{-- STAT 3: Tổng Số Mượn (Chỉ Admin) --}}
         <div class="col-lg-3 col-md-6 mb-3">
@@ -177,11 +116,6 @@
                         <div class="align-self-center">
                             <i class="fas fa-handshake fa-2x opacity-75"></i>
                         </div>
-=======
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
     </div>
     <div class="col-lg-3 col-md-6 mb-3">
         <div class="card text-white bg-warning">
@@ -193,26 +127,10 @@
                     </div>
                     <div class="align-self-center">
                         <i class="fas fa-handshake fa-2x opacity-75"></i>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
                     </div>
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
         
         {{-- STAT 4: Tổng Số Thể Loại (Chỉ Admin) --}}
         <div class="col-lg-3 col-md-6 mb-3">
@@ -227,11 +145,6 @@
                         <div class="align-self-center">
                             <i class="fas fa-tags fa-2x opacity-75"></i>
                         </div>
-=======
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
     </div>
     <div class="col-lg-3 col-md-6 mb-3">
         <div class="card text-white bg-info">
@@ -243,26 +156,10 @@
                     </div>
                     <div class="align-self-center">
                         <i class="fas fa-tags fa-2x opacity-75"></i>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
                     </div>
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
     @endif
 </div>
 
@@ -271,37 +168,16 @@
     ==================================== --}}
 <div class="row">
     {{-- BIỂU ĐỒ 1: Sách Được Mượn Nhiều Nhất --}}
-=======
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
     </div>
 </div>
 
 <div class="row">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
     <div class="col-lg-6 mb-4">
         <div class="card">
             <div class="card-header">
                 <h5 class="mb-0"><i class="fas fa-chart-bar me-2"></i>Sách Được Mượn Nhiều Nhất</h5>
             </div>
             <div class="card-body">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
                 {{-- Nếu có sách được mượn -> Hiển thị danh sách --}}
                 @if($mostBorrowedBooks->count() > 0)
                     <ul class="list-group list-group-flush">
@@ -311,75 +187,27 @@
                                 {{-- Tên sách --}}
                                 {{ $book->name }}
                                 {{-- Badge hiển thị số lần mượn --}}
-=======
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
                 @if($mostBorrowedBooks->count() > 0)
                     <ul class="list-group list-group-flush">
                         @foreach($mostBorrowedBooks as $book)
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 {{ $book->name }}
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
                                 <span class="badge bg-primary rounded-pill">{{ $book->borrows_count }}</span>
                             </li>
                         @endforeach
                     </ul>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-                {{-- Nếu không có sách nào được mượn -> Hiển thị thông báo --}}
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
                 @else
                     <p class="text-muted mb-0">Chưa có lượt mượn nào</p>
                 @endif
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-    
-    {{-- BIỂU ĐỒ 2: Sách Mới Thêm --}}
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
     <div class="col-lg-6 mb-4">
         <div class="card">
             <div class="card-header">
                 <h5 class="mb-0"><i class="fas fa-clock me-2"></i>Sách Mới Thêm</h5>
             </div>
             <div class="card-body">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
                 {{-- Nếu có sách mới -> Hiển thị danh sách --}}
                 @if($recentBooks->count() > 0)
                     <ul class="list-group list-group-flush">
@@ -389,43 +217,15 @@
                                 {{-- Tên sách --}}
                                 {{ $book->name }}
                                 {{-- Ngày thêm sách (định dạng dd/mm/yyyy) --}}
-=======
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
                 @if($recentBooks->count() > 0)
                     <ul class="list-group list-group-flush">
                         @foreach($recentBooks as $book)
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 {{ $book->name }}
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
                                 <small class="text-muted">{{ $book->created_at->format('d/m/Y') }}</small>
                             </li>
                         @endforeach
                     </ul>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-                {{-- Nếu không có sách nào -> Hiển thị thông báo --}}
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
                 @else
                     <p class="text-muted mb-0">Chưa có sách nào được thêm</p>
                 @endif
@@ -434,40 +234,22 @@
     </div>
 </div>
 
-<<<<<<< HEAD
 <div class="row">
-=======
-<<<<<<< HEAD
 <div class="row">
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
 {{-- ====================================
     PHẦN 3: BIỂU ĐỒ QUẢN TRỊ (Chỉ Admin)
     ==================================== --}}
 @if((Auth::user()->isAdmin() || Auth::user()->isStaff()))
 <div class="row">
     {{-- BIỂU ĐỒ 3: Mượn Theo Sách (Chỉ Admin) --}}
-=======
 <div class="row">
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
 <div class="row">
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
     <div class="col-lg-6 mb-4">
         <div class="card">
             <div class="card-header">
                 <h5 class="mb-0"><i class="fas fa-chart-pie me-2"></i>Mượn Theo Sách</h5>
             </div>
             <div class="card-body">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
                 {{-- Nếu có dữ liệu -> Hiển thị danh sách --}}
                 @if($borrowsByBook->count() > 0)
                     <ul class="list-group list-group-flush">
@@ -477,75 +259,27 @@
                                 {{-- Tên sách --}}
                                 {{ $book->name }}
                                 {{-- Badge hiển thị số lần mượn --}}
-=======
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
                 @if($borrowsByBook->count() > 0)
                     <ul class="list-group list-group-flush">
                         @foreach($borrowsByBook as $book)
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 {{ $book->name }}
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
                                 <span class="badge bg-success rounded-pill">{{ $book->borrows_count }}</span>
                             </li>
                         @endforeach
                     </ul>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-                {{-- Nếu không có dữ liệu -> Hiển thị thông báo --}}
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
                 @else
                     <p class="text-muted mb-0">Không có dữ liệu</p>
                 @endif
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-    
-    {{-- BIỂU ĐỒ 4: Mượn Theo Độc Giả (Chỉ Admin) --}}
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
     <div class="col-lg-6 mb-4">
         <div class="card">
             <div class="card-header">
                 <h5 class="mb-0"><i class="fas fa-user-friends me-2"></i>Mượn Theo Độc Giả</h5>
             </div>
             <div class="card-body">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
                 {{-- Nếu có dữ liệu -> Hiển thị danh sách --}}
                 @if($borrowsByReader->count() > 0)
                     <ul class="list-group list-group-flush">
@@ -555,43 +289,15 @@
                                 {{-- Tên độc giả --}}
                                 {{ $reader->name }}
                                 {{-- Badge hiển thị số lần mượn của độc giả này --}}
-=======
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
                 @if($borrowsByReader->count() > 0)
                     <ul class="list-group list-group-flush">
                         @foreach($borrowsByReader as $reader)
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 {{ $reader->name }}
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
                                 <span class="badge bg-warning rounded-pill">{{ $reader->borrows_count }}</span>
                             </li>
                         @endforeach
                     </ul>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-                {{-- Nếu không có dữ liệu -> Hiển thị thông báo --}}
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
                 @else
                     <p class="text-muted mb-0">Không có dữ liệu</p>
                 @endif
@@ -599,21 +305,4 @@
         </div>
     </div>
 </div>
-<<<<<<< HEAD
 @endsection
-=======
-<<<<<<< HEAD
-@endsection
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-@endif
-@endsection
-=======
-@endsection
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
-@endsection
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)

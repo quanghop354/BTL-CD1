@@ -2,12 +2,6 @@
 
 @section('title', 'Sách - Quản Lý Thư Viện')
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
 @section('breadcrumb')
 <x-breadcrumb :items="[
     ['title' => 'Sách', 'url' => route('books.index')]
@@ -28,11 +22,6 @@
             </a>
         </div>
     @endif
-=======
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h1 class="h3"><i class="fas fa-book me-2"></i>Sách</h1>
@@ -44,16 +33,6 @@
             <i class="fas fa-plus me-1"></i>Thêm Sách
         </a>
     </div>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
 </div>
 
 <div class="card mb-4">
@@ -122,12 +101,6 @@
 
 <div class="row">
     @forelse($books as $book)
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
         <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
             <div class="card h-100 shadow-sm border-0 table-hover transition">
                 <div class="card-body d-flex flex-column p-0">
@@ -207,11 +180,6 @@
                                 <input type="hidden" name="book_id" value="{{ $book->id }}">
                                 <button type="submit" class="btn btn-outline-success btn-sm" title="Thêm vào giỏ">
                                     <i class="fas fa-cart-plus"></i>
-=======
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
                 <div class="card-body d-flex flex-column">
@@ -252,33 +220,10 @@
                                 @csrf
                                 <button type="submit" class="btn btn-outline-success btn-sm">
                                     <i class="fas fa-undo me-1"></i>Khôi Phục
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
                                 </button>
                             </form>
                         @endif
                     </div>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    </div>
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
                 </div>
             </div>
         </div>
@@ -296,20 +241,4 @@
 <div class="d-flex justify-content-center">
     {{ $books->appends(request()->query())->links() }}
 </div>
-<<<<<<< HEAD
 @endsection
-=======
-<<<<<<< HEAD
-@endsection
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-@endsection
-=======
-@endsection
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
-@endsection
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)

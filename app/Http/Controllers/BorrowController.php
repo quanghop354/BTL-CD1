@@ -16,24 +16,6 @@ class BorrowController extends Controller
     {
         $query = Borrow::with('book', 'reader');
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (!auth()->user()->isAdmin() && !auth()->user()->isStaff()) {
-            $query->whereHas('reader', function ($q) {
-                $q->where('email', auth()->user()->email);
-            });
-        }
-
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
         if ($request->has('book_id') && $request->book_id) {
             $query->where('book_id', $request->book_id);
         }
@@ -42,22 +24,6 @@ class BorrowController extends Controller
             $query->where('reader_id', $request->reader_id);
         }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if ($request->has('status') && $request->status) {
-            $query->where('status', $request->status);
-        }
-
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
         $borrows = $query->paginate(10);
         $books = Book::all();
         $readers = Reader::all();
@@ -70,22 +36,6 @@ class BorrowController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (!auth()->user()->isAdmin() && !auth()->user()->isStaff()) {
-            return redirect()->route('books.index')->with('error', 'Vui lòng mượn sách từ mục sách và thực hiện thanh toán trước.');
-        }
-
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
         $books = Book::available()->get();
         return view('borrows.create', compact('books'));
     }
@@ -95,22 +45,6 @@ class BorrowController extends Controller
      */
     public function store(Request $request)
     {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (!auth()->user()->isAdmin() && !auth()->user()->isStaff()) {
-            return redirect()->route('books.index')->with('error', 'Người dùng cần tạo yêu cầu mượn từ trang sách và chờ admin xác nhận thanh toán.');
-        }
-
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
         $request->validate([
             'book_id' => 'required|exists:books,id',
             'name' => 'required|string|max:255',
@@ -119,24 +53,6 @@ class BorrowController extends Controller
             'return_date' => 'nullable|date|after:borrow_date',
         ]);
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $book = Book::findOrFail($request->book_id);
-
-        if ($book->status !== 'available') {
-            return redirect()->route('borrows.create')->with('error', 'Sách này hiện không có sẵn để mượn.');
-        }
-
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
         $reader = Reader::firstOrCreate(
             ['email' => $request->email],
             ['name' => $request->name]
@@ -150,22 +66,6 @@ class BorrowController extends Controller
             'status' => 'borrowed',
         ]);
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $book->update([
-            'status' => 'unavailable',
-        ]);
-
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
         return redirect()->route('borrows.index')->with('success', 'Mượn sách thành công.');
     }
 
@@ -198,86 +98,16 @@ class BorrowController extends Controller
      */
     public function destroy(string $id)
     {
-<<<<<<< HEAD
         //
-=======
-<<<<<<< HEAD
-        //
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (!auth()->user()->isAdmin() && !auth()->user()->isStaff()) {
-            abort(403, 'Bạn không có quyền truy cập trang này.');
-        }
-
-        $borrow = Borrow::findOrFail($id);
-        $borrow->delete();
-
-        return redirect()->route('borrows.index')->with('success', 'Ghi nhận mượn sách đã được xóa thành công.');
-=======
-        //
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
-        //
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
     }
 
     public function returnBook(Borrow $borrow)
     {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (!auth()->user()->isAdmin() && !auth()->user()->isStaff()) {
-            abort(403, 'Bạn không có quyền truy cập trang này.');
-        }
-
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
         $borrow->update([
             'status' => 'returned',
             'return_date' => now()->toDateString(),
         ]);
 
-<<<<<<< HEAD
         return redirect()->route('borrows.index')->with('success', 'Trả sách thành công.');
     }
 }
-=======
-<<<<<<< HEAD
-        return redirect()->route('borrows.index')->with('success', 'Trả sách thành công.');
-    }
-}
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if ($borrow->book) {
-            $borrow->book->update([
-                'status' => 'available',
-            ]);
-        }
-
-        return redirect()->route('borrows.index')->with('success', 'Trả sách thành công.');
-    }
-}
-
-=======
-        return redirect()->route('borrows.index')->with('success', 'Trả sách thành công.');
-    }
-}
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
-        return redirect()->route('borrows.index')->with('success', 'Trả sách thành công.');
-    }
-}
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)

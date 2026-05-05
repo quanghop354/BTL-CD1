@@ -15,23 +15,7 @@ class BookController extends Controller
      */
     public function index(Request $request)
     {
-<<<<<<< HEAD
         $query = Book::with('categories', 'borrows')->withCount('borrows');
-=======
-<<<<<<< HEAD
-        $query = Book::with('categories', 'borrows')->withCount('borrows');
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $query = Book::with('categories', 'borrows', 'publisher')->withCount('borrows');
-=======
-        $query = Book::with('categories', 'borrows')->withCount('borrows');
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
-        $query = Book::with('categories', 'borrows')->withCount('borrows');
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
 
         // Search
         if ($request->has('search') && $request->search) {
@@ -67,23 +51,7 @@ class BookController extends Controller
         $sortOrder = $request->get('sort_order', 'desc');
         $query->orderBy($sortBy, $sortOrder);
 
-<<<<<<< HEAD
         $books = $query->paginate(10);
-=======
-<<<<<<< HEAD
-        $books = $query->paginate(10);
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $books = $query->paginate(8);
-=======
-        $books = $query->paginate(10);
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
-        $books = $query->paginate(10);
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
         $categories = Category::all();
 
         return view('books.index', compact('books', 'categories'));
@@ -94,33 +62,8 @@ class BookController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
         $categories = Category::all();
         return view('books.create', compact('categories'));
-=======
-<<<<<<< HEAD
-        $categories = Category::all();
-        return view('books.create', compact('categories'));
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (!auth()->user()->isAdmin() && !auth()->user()->isStaff()) {
-            abort(403, 'Bạn không có quyền truy cập trang này.');
-        }
-
-        $categories = Category::all();
-        $publishers = \App\Models\Publisher::all();
-        return view('books.create', compact('categories', 'publishers'));
-=======
-        $categories = Category::all();
-        return view('books.create', compact('categories'));
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
-        $categories = Category::all();
-        return view('books.create', compact('categories'));
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
     }
 
     /**
@@ -128,22 +71,6 @@ class BookController extends Controller
      */
     public function store(BookRequest $request)
     {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (!auth()->user()->isAdmin() && !auth()->user()->isStaff()) {
-            abort(403, 'Bạn không có quyền truy cập trang này.');
-        }
-
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
         $data = $request->validated();
         $data['slug'] = Str::slug($data['name']);
 
@@ -164,34 +91,9 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      */
-<<<<<<< HEAD
     public function show(string $id)
     {
         //
-=======
-<<<<<<< HEAD
-    public function show(string $id)
-    {
-        //
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public function show(Book $book)
-    {
-        $book->load(['categories', 'borrows.reader', 'publisher', 'reviews.user']);
-        return view('books.show', compact('book'));
-=======
-    public function show(string $id)
-    {
-        //
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
-    public function show(string $id)
-    {
-        //
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
     }
 
     /**
@@ -199,33 +101,8 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-<<<<<<< HEAD
         $categories = Category::all();
         return view('books.edit', compact('book', 'categories'));
-=======
-<<<<<<< HEAD
-        $categories = Category::all();
-        return view('books.edit', compact('book', 'categories'));
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (!auth()->user()->isAdmin() && !auth()->user()->isStaff()) {
-            abort(403, 'Bạn không có quyền truy cập trang này.');
-        }
-
-        $categories = Category::all();
-        $publishers = \App\Models\Publisher::all();
-        return view('books.edit', compact('book', 'categories', 'publishers'));
-=======
-        $categories = Category::all();
-        return view('books.edit', compact('book', 'categories'));
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
-        $categories = Category::all();
-        return view('books.edit', compact('book', 'categories'));
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
     }
 
     /**
@@ -233,22 +110,6 @@ class BookController extends Controller
      */
     public function update(BookRequest $request, Book $book)
     {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (!auth()->user()->isAdmin() && !auth()->user()->isStaff()) {
-            abort(403, 'Bạn không có quyền truy cập trang này.');
-        }
-
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
         $data = $request->validated();
         $data['slug'] = Str::slug($data['name']);
 
@@ -271,44 +132,12 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (!auth()->user()->isAdmin() && !auth()->user()->isStaff()) {
-            abort(403, 'Bạn không có quyền truy cập trang này.');
-        }
-
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
         $book->delete();
         return redirect()->route('books.index')->with('success', 'Sách đã được xóa thành công.');
     }
 
     public function restore($id)
     {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (!auth()->user()->isAdmin() && !auth()->user()->isStaff()) {
-            abort(403, 'Bạn không có quyền truy cập trang này.');
-        }
-
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
         $book = Book::withTrashed()->findOrFail($id);
         $book->restore();
         return redirect()->route('books.index')->with('success', 'Sách đã được khôi phục thành công.');
@@ -316,22 +145,6 @@ class BookController extends Controller
 
     public function trashed(Request $request)
     {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (!auth()->user()->isAdmin() && !auth()->user()->isStaff()) {
-            abort(403, 'Bạn không có quyền truy cập trang này.');
-        }
-
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
         $query = Book::onlyTrashed()->with('categories');
 
         // Search
@@ -343,60 +156,15 @@ class BookController extends Controller
             });
         }
 
-<<<<<<< HEAD
         $trashedBooks = $query->paginate(10);
-=======
-<<<<<<< HEAD
-        $trashedBooks = $query->paginate(10);
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $trashedBooks = $query->paginate(8);
-=======
-        $trashedBooks = $query->paginate(10);
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
-        $trashedBooks = $query->paginate(10);
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
 
         return view('books.trashed', compact('trashedBooks'));
     }
 
     public function forceDelete($id)
     {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (!auth()->user()->isAdmin() && !auth()->user()->isStaff()) {
-            abort(403, 'Bạn không có quyền truy cập trang này.');
-        }
-
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
         $book = Book::withTrashed()->findOrFail($id);
         $book->forceDelete();
         return redirect()->route('books.trashed')->with('success', 'Sách đã được xóa vĩnh viễn.');
     }
 }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)

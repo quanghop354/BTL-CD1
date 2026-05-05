@@ -7,46 +7,12 @@ use App\Models\Category;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-use Illuminate\Support\Facades\Hash;
-
-/**
- * Seeder Cơ Sở Dữ Liệu - Tạo dữ liệu mẫu
- * 
- * Tạo:
- * - 1 tài khoản Admin với email admin@example.com
- * - 1 tài khoản User thường
- * - Các thể loại sách
- * - Các cuốn sách mẫu
- * 
- * Cách chạy: php artisan db:seed
- */
-=======
-
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
-
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
 class DatabaseSeeder extends Seeder
 {
     use WithoutModelEvents;
 
     /**
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
      * Chạy seeder để tạo dữ liệu mẫu vào database
      */
     public function run(): void
@@ -91,30 +57,8 @@ class DatabaseSeeder extends Seeder
          * TẠO DANH SÁCH THỂ LOẠI
          * ========================================
          */
-=======
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
-     * Seed the application's database.
-     */
-    public function run(): void
-    {
-        User::factory()->create([
-            'name' => 'Người Dùng Mẫu',
-            'email' => 'test@example.com',
-        ]);
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
+
         $this->call(CategorySeeder::class);
 
         $book1 = Book::create([

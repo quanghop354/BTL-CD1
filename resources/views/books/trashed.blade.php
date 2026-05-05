@@ -36,12 +36,6 @@
 
     <div class="row">
         @forelse($trashedBooks as $book)
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
             <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
                 <div class="card h-100 border-danger shadow-sm">
                     <div class="card-body d-flex flex-column p-0">
@@ -55,11 +49,6 @@
                             </div>
                         @endif
                         <div class="p-3 d-flex flex-column flex-grow-1">
-=======
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100 border-danger">
                     <div class="card-body d-flex flex-column">
@@ -70,16 +59,6 @@
                                 <i class="fas fa-book fa-3x text-muted"></i>
                             </div>
                         @endif
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
                         <h5 class="card-title text-muted">{{ $book->name }}</h5>
                         <p class="card-text text-muted">bởi {{ $book->author }}</p>
                         <p class="card-text"><strong>{{ number_format($book->price, 0, ',', '.') }} VNĐ</strong></p>
@@ -104,19 +83,6 @@
                                 </button>
                             </form>
                         </div>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-                        </div>
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
                     </div>
                 </div>
             </div>

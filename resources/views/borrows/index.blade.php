@@ -1,11 +1,5 @@
 @extends('layouts.master')
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
 @section('title', 'Mượn Trả - Quản Lý Thư Viện')
 
 @section('breadcrumb')
@@ -136,11 +130,6 @@
     {{ $borrows->appends(request()->query())->links() }}
 </div>
 @endsection
-=======
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
 @section('content')
 <h1>Borrows</h1>
 
@@ -207,17 +196,4 @@
 </table>
 
 {{ $borrows->appends(request()->query())->links() }}
-<<<<<<< HEAD
 @endsection
-=======
-<<<<<<< HEAD
-@endsection
-=======
-<<<<<<< HEAD
-@endsection
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
-@endsection
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)

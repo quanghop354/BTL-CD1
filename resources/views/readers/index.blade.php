@@ -2,24 +2,6 @@
 
 @section('title', 'Độc Giả - Quản Lý Thư Viện')
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-@section('breadcrumb')
-<x-breadcrumb :items="[
-    ['title' => 'Độc giả', 'url' => route('readers.index')]
-]" />
-@endsection
-
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h1 class="h3"><i class="fas fa-users me-2"></i>Độc Giả</h1>
@@ -30,62 +12,19 @@
 
 <div class="card mb-4">
     <div class="card-header">
-<<<<<<< HEAD
         <h5 class="mb-0"><i class="fas fa-search me-2"></i>Tìm Kiếm</h5>
-=======
-<<<<<<< HEAD
-        <h5 class="mb-0"><i class="fas fa-search me-2"></i>Tìm Kiếm</h5>
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <h5 class="mb-0"><i class="fas fa-search me-2"></i>Tìm Kiếm & Sắp Xếp</h5>
-=======
-        <h5 class="mb-0"><i class="fas fa-search me-2"></i>Tìm Kiếm</h5>
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
-        <h5 class="mb-0"><i class="fas fa-search me-2"></i>Tìm Kiếm</h5>
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
     </div>
     <div class="card-body">
         <form method="GET">
             <div class="row g-3">
-<<<<<<< HEAD
                 <div class="col-md-6">
-=======
-<<<<<<< HEAD
-                <div class="col-md-6">
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-                <div class="col-md-8">
-=======
-                <div class="col-md-6">
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
-                <div class="col-md-6">
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
                     <input type="text" name="search" class="form-control" placeholder="Tìm theo tên hoặc email" value="{{ request('search') }}">
                 </div>
                 <div class="col-md-3">
                     <select name="sort_by" class="form-select">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
                         <option value="created_at" {{ request('sort_by') == 'created_at' ? 'selected' : '' }}>Ngày Thêm (Mới nhất)</option>
                         <option value="name" {{ request('sort_by') == 'name' ? 'selected' : '' }}>Tên (A-Z)</option>
                         <option value="borrows_count" {{ request('sort_by') == 'borrows_count' ? 'selected' : '' }}>Số Lượt Mượn (Cao nhất)</option>
-=======
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
                         <option value="created_at" {{ request('sort_by') == 'created_at' ? 'selected' : '' }}>Ngày Thêm</option>
                         <option value="name" {{ request('sort_by') == 'name' ? 'selected' : '' }}>Tên</option>
                         <option value="borrows_count" {{ request('sort_by') == 'borrows_count' ? 'selected' : '' }}>Số Lượt Mượn</option>
@@ -95,16 +34,6 @@
                     <select name="sort_order" class="form-select">
                         <option value="desc" {{ request('sort_order') == 'desc' ? 'selected' : '' }}>Giảm Dần</option>
                         <option value="asc" {{ request('sort_order') == 'asc' ? 'selected' : '' }}>Tăng Dần</option>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
                     </select>
                 </div>
                 <div class="col-md-1">

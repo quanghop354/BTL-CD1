@@ -8,12 +8,6 @@ use App\Models\Category;
 use App\Models\Reader;
 use Illuminate\Http\Request;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
 /**
  * Controller Bảng Điều Khiển (Dashboard)
  * Quản lý hiển thị bảng điều khiển dựa trên vai trò của người dùng:
@@ -134,36 +128,3 @@ class DashboardController extends Controller
     }
 }
 
-=======
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
-class DashboardController extends Controller
-{
-    public function index()
-    {
-        $totalBooks = Book::count();
-        $totalReaders = Reader::count();
-        $totalBorrows = Borrow::count();
-        $totalCategories = Category::count();
-
-        $mostBorrowedBooks = Book::withCount('borrows')->orderBy('borrows_count', 'desc')->take(5)->get();
-        $recentBooks = Book::latest()->take(5)->get();
-
-        $borrowsByBook = Book::withCount('borrows')->where('borrows_count', '>', 0)->orderBy('borrows_count', 'desc')->get();
-        $borrowsByReader = Reader::withCount('borrows')->where('borrows_count', '>', 0)->orderBy('borrows_count', 'desc')->get();
-
-        return view('dashboard', compact('totalBooks', 'totalReaders', 'totalBorrows', 'totalCategories', 'mostBorrowedBooks', 'recentBooks', 'borrowsByBook', 'borrowsByReader'));
-    }
-}
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
-=======
->>>>>>> 7e128d690ff2135430cb675ec02b29e75681fedd
->>>>>>> d8c32b4 (hoanthanh)
->>>>>>> 02bf373 (hoanthanh)
